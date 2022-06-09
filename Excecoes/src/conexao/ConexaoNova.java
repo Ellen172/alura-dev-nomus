@@ -1,7 +1,7 @@
 package conexao;
 
-public class Conexao {
-	public Conexao() {
+public class ConexaoNova implements AutoCloseable{
+	public ConexaoNova() {
 		System.out.println("abrindo conexao");
 		throw new IllegalStateException();
 	}
@@ -10,8 +10,9 @@ public class Conexao {
 		System.out.println("recebendo dados");
 		//throw new IllegalStateException();
 	}
-	
-	public void fecha() {
+
+	@Override
+	public void close() {
 		System.out.println("fechando conexao");
 	}
 }
