@@ -12,9 +12,9 @@ public class Test {
 		System.out.println(pMax.name() + 
 				"\t" + pMax.ordinal() + "\t" + pMax.getValor());
 		
-		//ordinal = nro de classificação de acordo com a ordem que foram inseridos na classe
-		
-		
+		/* ordinal = nro de classificação de acordo com a 
+		 * ordem que foram inseridos na classe Prioridade
+		 */
 		
 	}
 }
