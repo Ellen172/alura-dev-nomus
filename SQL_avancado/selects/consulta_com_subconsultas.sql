@@ -1,0 +1,25 @@
+-- SUB CONSULTAS 
+
+-- clientes moram em bairros onde vendedores trabalham
+SELECT DISTINCT * 
+FROM TABELA_DE_CLIENTES
+WHERE BAIRRO IN
+	(SELECT DISTINCT BAIRRO FROM TABELA_DE_VENDEDORES);
+
+-- maior preço de cada tipo de embalagem, para preco maximo >= 10
+select X.EMBALAGEM, X.PRECO_MAXIMO from
+(select EMBALAGEM, max(PRECO_DE_LISTA) as PRECO_MAXIMO
+from TABELA_DE_PRODUTOS
+group by EMBALAGEM) X
+where X.PRECO_MAXIMO >= 10;
+
+-- EXERCICIO: Qual seria a consulta usando subconsulta que seria equivalente a:
+/* SELECT CPF, COUNT(*) FROM NOTAS_FISCAIS
+WHERE YEAR(DATA_VENDA) = 2015
+GROUP BY CPF
+HAVING COUNT(*) > 500; */
+
+SELECT X.CPF, X.CONTADOR FROM 
+(SELECT CPF, COUNT(*) AS CONTADOR FROM NOTAS_FISCAIS
+WHERE YEAR(DATA_VENDA) = 2015
+GROUP BY CPF) X WHERE X.CONTADOR > 500;

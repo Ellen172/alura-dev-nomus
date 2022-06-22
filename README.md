@@ -7,6 +7,7 @@ Cursos do Alura, utilizados como preparação para trabalho como Desenvolvedora.
 - Refatoração em java: boas práticas no seu código
 - TDD e Java: teste automatizados com JUnit 
 - SQL com MySQL: manipule e consulte dados
+- Consultas SQL: avançando no SQL com MySQL
 
 ## Extras
 - O que são Enums no Java
