@@ -1,0 +1,4 @@
+na pasta do projeto: 
+mvn compile 
+mvn eclipse:eclipse
+

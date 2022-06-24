@@ -8,6 +8,7 @@ Cursos do Alura, utilizados como preparação para trabalho como Desenvolvedora.
 - TDD e Java: teste automatizados com JUnit 
 - SQL com MySQL: manipule e consulte dados
 - Consultas SQL: avançando no SQL com MySQL
+- Persistência com JPA: Hibernate
 
 ## Extras
 - O que são Enums no Java
