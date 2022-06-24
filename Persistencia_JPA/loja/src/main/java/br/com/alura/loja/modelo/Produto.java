@@ -22,9 +22,12 @@ public class Produto {
 	private String descricao;
 	private BigDecimal preco;
 	private LocalDate data_cadastro = LocalDate.now(); // preenche sempre para a data atual
-	
-	@ManyToOne //define que se trata de um relacionamento, muitos pra um 
+
+	@ManyToOne // define que se trata de um relacionamento, muitos pra um
 	private Categoria categoria;
+
+	public Produto() {
+	}
 
 	public Produto(String nome, String descricao, BigDecimal preco, Categoria categoria) {
 		super();
