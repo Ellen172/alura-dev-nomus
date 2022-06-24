@@ -41,22 +41,9 @@ public class CadastroDeProduto {
 		categoriaDao.cadastrar(celulares);
 		produtoDao.cadastrar(celular); 
 		produtoDao.cadastrar(celular2);
-		
-		//em.persist(celulares); //envia do estado transient para o estado managed
-		
-		//celulares.setNome("XTP"); //update nome
-		//em.flush(); //envia do estado managed para o banco, mas não finaliza
-		//em.clear(); //limpa o manager, envia para o estado detached
-				
-		//celulares = em.merge(celulares); //busca no estado detached, envia para managed
-		//celulares.setNome("ABC"); //update nome
-		//em.flush(); // envia para o banco
-		//em.clear(); //dá erro, pois não será possivel remover da classe detached
-		//em.remove(celulares); //deleta no banco, buscando no managed
-		//em.flush();
 
-		em.getTransaction().commit(); //finaliza transcação, envia para o banco
-		em.close(); //finaliza entity manager, limpa detached
+		em.getTransaction().commit(); //finaliza transcação
+		em.close(); //finaliza entity manager
 	}
 
 }
