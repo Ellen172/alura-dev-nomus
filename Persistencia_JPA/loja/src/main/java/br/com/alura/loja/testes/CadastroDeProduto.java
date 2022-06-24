@@ -15,15 +15,34 @@ public class CadastroDeProduto {
 
 	public static void main(String[] args) {		
 		cadastrarProdutoTeste();
-		
+
+		Categoria celulares = new Categoria("CELULARES");
 		EntityManager em = JPAUtil.getEntityManager();
 		ProdutoDao produtoDao = new ProdutoDao(em);
 		
-		Produto p1 = produtoDao.buscarPorId(1l); //select de um elemento da tabela
-		System.out.println(p1.getPreco());
+		//select de um elemento da tabela
+		Produto porId = produtoDao.buscarPorId(1l); 
+		System.out.println(porId.getPreco());
+		System.out.println();
 		
-		List<Produto> todos = produtoDao.buscarTodos(); //select de todos os elementos de uma tabela
+		//select de todos os elementos de uma tabela
+		List<Produto> todos = produtoDao.buscarTodos(); 
 		todos.forEach(p -> System.out.println(p.getNome()));
+		System.out.println();
+		
+		// select com filtro 
+		List<Produto> porNome = produtoDao.buscarPorNome("LG K11+");
+		porNome.forEach(pnome -> System.out.println(pnome.getNome()));
+		System.out.println();
+		
+		List<Produto> porNomeCategoria = produtoDao.buscarPorNomeDaCategoria("CELULARES");
+		porNomeCategoria.forEach(pnomecat -> System.out.println(pnomecat.getNome()));
+		System.out.println();
+		
+		BigDecimal precoDoProduto = produtoDao.buscarPrecoPeloNome("Xiaomi Redmi");
+		System.out.println(precoDoProduto);
+		System.out.println();
+		
 	}
 
 	private static void cadastrarProdutoTeste() {
