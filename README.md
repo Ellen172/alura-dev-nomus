@@ -9,6 +9,7 @@ Cursos do Alura, utilizados como preparação para trabalho como Desenvolvedora.
 - SQL com MySQL: manipule e consulte dados
 - Consultas SQL: avançando no SQL com MySQL
 - Persistência com JPA: Hibernate
+- Java Servlet: programação web Java
 
 ## Extras
 - O que são Enums no Java
