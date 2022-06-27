@@ -20,6 +20,14 @@ public class NovaEmpresaServlet extends HttpServlet {
 		
 		String nomeEmpresa = request.getParameter("nome"); //lê parametro enviado pelo metodo get
 		
+		//cria um objeto do tipo empresa
+		Empresa empresa = new Empresa();
+		empresa.setNome(nomeEmpresa);
+		
+		//inserindo em banco ficticio
+		Banco banco = new Banco();		
+		banco.adiciona(empresa);
+		
 		PrintWriter out = response.getWriter();
 		out.println("<html>"
 				+ "<body>"
