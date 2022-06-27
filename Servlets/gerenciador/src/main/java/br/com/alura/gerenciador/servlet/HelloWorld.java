@@ -12,7 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 public class HelloWorld extends HttpServlet{
 
 	@Override
-	protected void service(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+	protected void service(HttpServletRequest req, HttpServletResponse resp) //executa requisição get ou post
+			throws IOException {
 		PrintWriter out = resp.getWriter();
 		out.println("<html>");
 		out.println("<body>");
