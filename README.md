@@ -10,6 +10,7 @@ Cursos do Alura, utilizados como preparação para trabalho como Desenvolvedora.
 - Consultas SQL: avançando no SQL com MySQL
 - Persistência com JPA: Hibernate
 - Java Servlet: programação web Java
+- JavaScript: programando na linguagem da web
 
 ## Extras
 - O que são Enums no Java
