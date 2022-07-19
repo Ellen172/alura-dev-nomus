@@ -6,6 +6,8 @@
 <!-- biblioteca java standart taglib -->
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!-- biblioteca java standart taglib -->
+<c:url value="/removeEmpresa" var="servletRemoveEmpresa" />
+<c:url value="/mostraEmpresa" var="servletMostraEmpresa"></c:url>
 
 <!DOCTYPE html>
 <html>
@@ -18,13 +20,16 @@
 		<!-- empresa não esta vazia -->
 			Empresa ${empresa} cadastrada com sucesso!
 	</c:if>
-	
+
 	<h3>Lista de empresas:</h3>
 	<ul>
 		<c:forEach items="${ empresas }" var="empresa">
 			<!-- para cada empresa na lista empresas -->
-			<li>${ empresa.nome } - <fmt:formatDate
-					value="${ empresa.dataAbertura }" pattern="dd/MM/yyyy" /></li>
+			<li>${ empresa.nome }- 
+			<fmt:formatDate value="${empresa.dataAbertura}" pattern="dd/MM/yyyy" /> | 
+			<a href="${servletMostraEmpresa}?id=${empresa.id}">Editar</a> | 
+			<a href="${servletRemoveEmpresa}?id=${empresa.id}">Remover</a>
+			</li>
 		</c:forEach>
 	</ul>
 
