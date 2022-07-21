@@ -1,7 +1,8 @@
 console.log("Olá, mundo!");
 
-calculaImc();
+calculaTodosImc();
 
+// altera titulo
 var titulo = document.querySelector(".titulo");
 titulo.textContent = "Nutricionista Aparecida";
 
@@ -10,56 +11,7 @@ titulo.addEventListener("click", function(){
     console.log("olá, eu fui clicado!"); //função anônima
 }) 
 
-var btnAdicionar = document.querySelector("#adicionar-paciente");
-btnAdicionar.addEventListener("click", insereNaTabela);
-
-
-function insereNaTabela(event){
-    event.preventDefault(); //impede o comportamento padrão do botão
-    console.log("insere na tabela");
-
-    //localiza no form
-    var form = document.querySelector("#form-adiciona");
-    var nome = form.nome.value;
-    var peso = form.peso.value;
-    var altura = form.altura.value;
-    var gordura = form.gordura.value;
-
-    //cria elementos
-    var pacienteTr = document.createElement("tr"); 
-    var nomeTd = document.createElement("td");
-    var pesoTd = document.createElement("td");
-    var alturaTd = document.createElement("td");
-    var gorduraTd = document.createElement("td");
-    var imcTd = document.createElement("td");
-
-    //td como filhos de tr 
-    pacienteTr.appendChild(nomeTd);
-    pacienteTr.appendChild(pesoTd);
-    pacienteTr.appendChild(alturaTd);
-    pacienteTr.appendChild(gorduraTd);
-    pacienteTr.appendChild(imcTd);
-    
-    //adiciona classes
-    pacienteTr.classList.add("paciente"); 
-    nomeTd.classList.add("info-nome");
-    pesoTd.classList.add("info-peso");
-    alturaTd.classList.add("info-altura");
-    gorduraTd.classList.add("info-gorduda");
-    imcTd.classList.add("info-imc");
-    
-    //atribui valores aos elementos
-    nomeTd.textContent = nome;
-    pesoTd.textContent = peso;
-    alturaTd.textContent = altura;
-    gorduraTd.textContent = gordura;
-
-    //inserindo na tabela
-    var tabela = document.querySelector("#tabela-pacientes");
-    tabela.appendChild(pacienteTr);
-}
-
-function calculaImc(){
+function calculaTodosImc(){
     //calcular imc
 
     var pacientes = document.querySelectorAll(".paciente"); // localiza todos os pacientes 
@@ -88,9 +40,12 @@ function calculaImc(){
         }
         
         if(alturaValida == true && pesoValido == true){
-            //alterando valor do imc
-            var imc = peso / (altura * altura);
-            tdImc.textContent = imc.toFixed(2);
+            tdImc.textContent = calculaIMC(peso, altura); //insere valor calculado do imc
         }
     }
+}
+
+function calculaIMC(peso, altura){
+    var imc = peso / (altura*altura);
+    return imc.toFixed(2); 
 }
