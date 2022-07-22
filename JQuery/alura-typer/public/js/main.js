@@ -1,13 +1,19 @@
 
-
-
-
-// definir numero de palavras da frase
-
-var frase = $(".frase").text(); //retorna o texto do elemento que tem classe frase
 /* $(".frase") = jQuery(".frase") */
-var numPalavras = frase.split(" ").length; //cria uma array, onde cada espaço divide o elemento, retorna o tamanho
-
-// definir info-tamanho
+var frase = $(".frase").text(); //retorna o texto do elemento que tem classe frase
 var tamanhoFrase = $("#tamanho-frase");
-tamanhoFrase.text(numPalavras);
+contaPalavras(frase, tamanhoFrase);
+
+var campo = $("#campo-digitacao");
+var contPalavras = $("#contador-palavras");
+var contCaracteres = $("#contador-caracteres");
+campo.on("input", function(){
+    contaPalavras(campo.val(), contPalavras); //conta as palavras
+    contCaracteres.text(campo.val().length); //conta os caracteres (tamanho total)
+});
+
+
+function contaPalavras(frase, elemento){
+    var numPalavras = frase.split(/\S+/).length -1; //cria uma array, onde cada espaço vazio divide o elemento e retorna o tamanho
+    elemento.text(numPalavras); // troca o texto do elemento pelo numPalavras
+}
