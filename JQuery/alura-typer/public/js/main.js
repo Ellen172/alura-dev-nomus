@@ -1,6 +1,6 @@
 // $("#frase") = jQuery("#frase") 
 
-var campoDigitacao = $("#campo-digitacao");
+var campoDigitacao = $(".campo-digitacao");
 var tempoInicial = $("#tempo-digitacao").text();
 var cronometro = $("#tempo-digitacao");
 
@@ -12,6 +12,7 @@ $(function(){
     atualizaTamanhoFrase();
     inicializaContadores();
     inicializaCronometro(tempoInicial);
+    inicializaMarcadores();
         
     $("#btn-reiniciar").click(reiniciaJogo);
 });
@@ -19,6 +20,24 @@ $(function(){
 
 /* funções */  
 
+function inicializaMarcadores(){
+
+    var frase = $("#frase").text();
+    campoDigitacao.on("input", function(){
+        var digitado = $(".campo-digitacao").val();
+        var comparavel = frase.substr(0, digitado.length);
+        console.log(digitado);
+        console.log(comparavel);
+        if(digitado == comparavel){
+            campoDigitacao.removeClass("texto-errado");
+            campoDigitacao.addClass("texto-correto");
+        } else {
+            campoDigitacao.removeClass("texto-correto");
+            campoDigitacao.addClass("texto-errado");
+        }
+        
+    });
+}
 
 function reiniciaJogo(){
     campoDigitacao.attr("disabled", false); //habilita textarea
@@ -27,7 +46,9 @@ function reiniciaJogo(){
     inicializaContadores();
     cronometro.text(tempoInicial);
     inicializaCronometro(tempoInicial);
-    campoDigitacao.toggleClass("campo-desativado");
+    campoDigitacao.removeClass("campo-desativado");
+    campoDigitacao.removeClass("texto-correto");
+    campoDigitacao.removeClass("texto-errado");
 }
 
 function inicializaCronometro(tempoRestante){
@@ -40,7 +61,7 @@ function inicializaCronometro(tempoRestante){
             if(tempoRestante < 1){
                 // game over
                 campoDigitacao.attr("disabled", true);
-                campoDigitacao.toggleClass("campo-desativado");
+                campoDigitacao.addClass("campo-desativado");
                 $("#btn-reiniciar").attr("disabled", false);
                 clearInterval(cronometroId);
             }
