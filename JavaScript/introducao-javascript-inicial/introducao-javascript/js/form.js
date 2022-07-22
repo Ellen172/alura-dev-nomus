@@ -43,6 +43,7 @@ function obtemPacienteForm(form){
 function montaTr(paciente){
     // cria elementos
     var pacienteTr = document.createElement("tr"); 
+    pacienteTr.classList.add("paciente");
 
     // td como filhos de tr 
     pacienteTr.appendChild(montaTd(paciente.nome, "info-nome"));
