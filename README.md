@@ -11,6 +11,7 @@ Cursos do Alura, utilizados como preparação para trabalho como Desenvolvedora.
 - Persistência com JPA: Hibernate
 - Java Servlet: programação web Java
 - JavaScript: programando na linguagem da web
+- JQuery: domine a biblioteca mais popular do mercado (parte 1)
 
 ## Extras
 - O que são Enums no Java
