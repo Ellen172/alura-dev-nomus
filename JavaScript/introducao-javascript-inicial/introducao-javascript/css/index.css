@@ -137,14 +137,15 @@ button[disabled=disabled], button:disabled {
 	background-color: orange;
 }
 
-#mensagem-erro {
+.mensagem-erro {
 	color: red;
 	font-style: italic;
 	font-weight: bold;
 	text-align: end;
+	float: inline-end;
 }
 
-#mensagem-sucesso {
+.mensagem-sucesso {
 	color: green;
 	font-style: italic;
 	font-weight: bold;

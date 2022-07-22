@@ -21,8 +21,8 @@
 		<main>
 			<section class="container">
 				<h2 id="titulo-form">Adicionar novo paciente</h2>
-				<ul id="mensagem-erro"></ul>
-				<span id="mensagem-sucesso"></span>
+				<ul id="erro-cadastro-paciente" class="mensagem-erro"></ul>
+				<span id="sucesso-cadastro-paciente" class="mensagem-sucesso"></span>
 				<form id="form-adiciona">
 					<div class="">
 						<label for="nome">Nome:</label>
@@ -58,6 +58,8 @@
 
 				</fieldset>
 
+				<button id="carregar-paciente" class="botao bto-principal">Carregar Paciente</button>
+				<span id="erro-carrega-paciente" class="mensagem-erro">Erro ao buscar os pacientes</span>
 				<table>
 					<thead>
 						<tr>
@@ -117,7 +119,7 @@
 		<script src="./js/form.js"></script> 
 		<script src="./js/removerPaciente.js"></script>
 		<script src="./js/filtro.js"></script>
-
+		<script src="./js/carregarPaciente.js"></script>
 	</body>
 
 </html>
