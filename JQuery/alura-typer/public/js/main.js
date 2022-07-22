@@ -8,7 +8,7 @@ $(function(){
 //$(document).ready(function(){
 
     //executado assim que a pagina estiver pronta
-    console.log(tempoInicial);
+
     atualizaTamanhoFrase();
     inicializaContadores();
     inicializaCronometro(tempoInicial);
@@ -31,6 +31,7 @@ function reiniciaJogo(){
 
 function inicializaCronometro(tempoRestante){
     campoDigitacao.one("focus", function(){ // chama na primeira vez que ocorre o focus
+        $("#btn-reiniciar").attr("disabled", true);
         var cronometroId = setInterval(function(){
             tempoRestante--;
             cronometro.text(tempoRestante); 
@@ -38,6 +39,7 @@ function inicializaCronometro(tempoRestante){
             if(tempoRestante < 1){
                 // game over
                 campoDigitacao.attr("disabled", true);
+                $("#btn-reiniciar").attr("disabled", false);
                 clearInterval(cronometroId);
             }
         }, 1000);
