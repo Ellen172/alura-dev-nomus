@@ -1,0 +1,19 @@
+#frase {
+    font-size: 20px;
+    text-align: justify;
+    margin: 0 30px;
+}
+
+#campo-digitacao{
+    font-size: 20px;
+    height: 130px;
+}
+
+.campo-desativado{
+    background-color: bisque;
+}
+
+.icones{
+    vertical-align: middle;
+    
+}

@@ -1,4 +1,4 @@
-// $(".frase") = jQuery(".frase") 
+// $("#frase") = jQuery("#frase") 
 
 var campoDigitacao = $("#campo-digitacao");
 var tempoInicial = $("#tempo-digitacao").text();
@@ -27,6 +27,7 @@ function reiniciaJogo(){
     inicializaContadores();
     cronometro.text(tempoInicial);
     inicializaCronometro(tempoInicial);
+    campoDigitacao.toggleClass("campo-desativado");
 }
 
 function inicializaCronometro(tempoRestante){
@@ -39,6 +40,7 @@ function inicializaCronometro(tempoRestante){
             if(tempoRestante < 1){
                 // game over
                 campoDigitacao.attr("disabled", true);
+                campoDigitacao.toggleClass("campo-desativado");
                 $("#btn-reiniciar").attr("disabled", false);
                 clearInterval(cronometroId);
             }
@@ -57,7 +59,7 @@ function inicializaContadores(){
 }
 
 function atualizaTamanhoFrase(){
-    var frase = $(".frase").text(); //retorna o texto do elemento que tem classe frase
+    var frase = $("#frase").text(); //retorna o texto do elemento que tem classe frase
     var tamanhoFrase = $("#tamanho-frase");
     contaPalavras(frase, tamanhoFrase);
     
