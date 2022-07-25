@@ -20,14 +20,21 @@ $(function(){
 
 /* funções */  
 
+$(".btn-remover").click(function (event){
+    event.preventDefault();
+    $(this).parent().parent().remove();
+});
+
 function inserePlacar(){
     var tabela = $(".placar").find("tbody"); 
     var usuario = "Ellen";
     var nroPalavras = $("#contador-palavras").text();
+    var btnRemove = "<a href='#'>  <i class='smalll material-icons'>delete</i> </a>"
 
     var linha = "<tr>" +
                     "<td>" + usuario + "</td>" +
                     "<td>" + nroPalavras     + "</td>" +
+                    "<td>" + btnRemove + "</td>" +
                 "</tr>";
 
     tabela.append(linha); // adiciona linha na tabela
