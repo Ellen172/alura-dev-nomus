@@ -20,14 +20,25 @@ $(function(){
 
 /* funções */  
 
+function inserePlacar(){
+    var tabela = $(".placar").find("tbody"); 
+    var usuario = "Ellen";
+    var nroPalavras = $("#contador-palavras").text();
+
+    var linha = "<tr>" +
+                    "<td>" + usuario + "</td>" +
+                    "<td>" + nroPalavras     + "</td>" +
+                "</tr>";
+
+    tabela.append(linha); // adiciona linha na tabela
+}
+
 function inicializaMarcadores(){
 
     var frase = $("#frase").text();
     campoDigitacao.on("input", function(){
         var digitado = $(".campo-digitacao").val();
         var comparavel = frase.substr(0, digitado.length);
-        console.log(digitado);
-        console.log(comparavel);
         if(digitado == comparavel){
             campoDigitacao.removeClass("texto-errado");
             campoDigitacao.addClass("texto-correto");
@@ -51,6 +62,18 @@ function reiniciaJogo(){
     campoDigitacao.removeClass("texto-errado");
 }
 
+function gameOver(){
+    // ativar botão reiniciar
+    $("#btn-reiniciar").attr("disabled", false);
+
+    // desativar campo de digitação
+    campoDigitacao.attr("disabled", true);
+    campoDigitacao.addClass("campo-desativado"); 
+
+    // inserir score no placar
+    inserePlacar();
+}
+
 function inicializaCronometro(tempoRestante){
     campoDigitacao.one("focus", function(){ // chama na primeira vez que ocorre o focus
         $("#btn-reiniciar").attr("disabled", true);
@@ -59,10 +82,7 @@ function inicializaCronometro(tempoRestante){
             cronometro.text(tempoRestante); 
             
             if(tempoRestante < 1){
-                // game over
-                campoDigitacao.attr("disabled", true);
-                campoDigitacao.addClass("campo-desativado");
-                $("#btn-reiniciar").attr("disabled", false);
+                gameOver();
                 clearInterval(cronometroId);
             }
         }, 1000);
