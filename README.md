@@ -12,6 +12,7 @@ Cursos do Alura, utilizados como preparação para trabalho como Desenvolvedora.
 - Java Servlet: programação web Java
 - JavaScript: programando na linguagem da web
 - JQuery: domine a biblioteca mais popular do mercado (parte 1)
+- JQuery: domine a biblioteca mais popular do mercado (parte 2)
 
 ## Extras
 - O que são Enums no Java

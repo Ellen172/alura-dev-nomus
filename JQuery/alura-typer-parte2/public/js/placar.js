@@ -37,5 +37,9 @@ function novaLinha(usuario, palavras) {
 
 function removeLinha() {
     event.preventDefault();
-    $(this).parent().parent().remove();
+    var linha = $(this).parent().parent();
+    linha.fadeOut(1000); // torna display none com efeito fade out
+    setTimeout(() => {
+       linha.remove(); // remove linha
+    }, 1000);
 }
