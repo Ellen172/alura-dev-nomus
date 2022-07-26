@@ -1,3 +1,9 @@
+$("#botao-placar").click(mostraPlacar);
+
+function mostraPlacar(){
+    $(".placar").slideToggle(1000); 
+}
+
 function inserePlacar() {
     var corpoTabela = $(".placar").find("tbody");
     var usuario = "Douglas"
