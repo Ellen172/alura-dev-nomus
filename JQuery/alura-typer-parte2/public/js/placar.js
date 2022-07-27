@@ -1,7 +1,7 @@
 $("#botao-placar").click(mostraPlacar);
 
 function mostraPlacar(){
-    $(".placar").slideToggle(1000); 
+    $(".placar").stop().slideToggle(1000); 
 }
 
 function inserePlacar() {
