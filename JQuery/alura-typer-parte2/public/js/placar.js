@@ -13,6 +13,15 @@ function inserePlacar() {
     linha.find(".botao-remover").click(removeLinha);
 
     corpoTabela.append(linha);
+    $(".placar").slideDown();
+}
+
+function scrollPlacar(){
+    var posicaoPlacar = $(".placar").offset().top;
+    console.log(posicaoPlacar);
+    $("body").animate({ // não funciona
+        scrollTop: posicaoPlacar+"px"
+    }, 1000);
 }
 
 function novaLinha(usuario, palavras) {
