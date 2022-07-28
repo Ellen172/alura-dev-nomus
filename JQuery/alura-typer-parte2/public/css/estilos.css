@@ -42,3 +42,7 @@ body {
     width: 45px;
     display: none;
 }
+
+#busca-frase {
+    width: 50px;
+}
