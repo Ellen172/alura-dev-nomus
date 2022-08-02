@@ -46,3 +46,7 @@ body {
 #busca-frase {
     width: 50px;
 }
+
+#botao-sync {
+    float: right;
+}
