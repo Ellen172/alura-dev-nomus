@@ -6,9 +6,13 @@ $(function() {
     inicializaContadores();
     inicializaCronometro();
     inicializaMarcadores();
-    $("#botao-reiniciar").click(reiniciaJogo);
     atualizaPlacar();
     inicializaSelect();
+    
+    $("#botao-reiniciar").click(reiniciaJogo);
+    $("#botao-sync").tooltipster({
+        trigger: "custom"
+    });
 });
 
 function inicializaSelect (){

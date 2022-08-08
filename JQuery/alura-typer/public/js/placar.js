@@ -78,6 +78,13 @@ function sincronizaPlacar(){
 
         $.post("http://localhost:3000/placar", dados, function(){
             console.log("Placar sincronizado com sucesso");
+            $("#botao-sync").tooltipster("open").tooltipster("content", "Sucesso ao sincronizar!");
+        }).fail(function(){
+            $("#botao-sync").tooltipster("open").tooltipster("content", "Falha ao sincronizar!");
+        }).always(function(){
+            setTimeout(() => {
+                $("#botao-sync").tooltipster("close");
+            }, 1200);
         });
 
     });
